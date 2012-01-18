@@ -1,0 +1,34 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3889
+
+A simple way to switch buffer quickly .
+
+it may be very helpful if you often need to switch buffer in a lot of buffers.
+
+1. basic usage
+
+:e a.txt
+:w
+za
+
+:e b.txt
+:w
+za
+
+:e c.txt
+:w
+za
+
+press <c-j> or <c-k> then you can switch buffer in the list that contain a.txt , b.txt , c.txt. 
+
+2. group the buffer list
+
+when you open a new tab page , you will switch to another group automatic , the number of group is the number of tab page number . that mean you can manage multiple buffer list
+
+3. edit your .vimrc like this:
+
+nnoremap za :call SBQ_PushBuffer()<cr>                     # add current buffer to buffer list
+nnoremap zd :call SBQ_PopBuffer()<cr>                      # delete current buffer from buffer list
+nnoremap zs :call SBQ_ShowBufferList()<cr>                 # show the list of buffer list
+nnoremap <c-j> :call SBQ_SelectBuffer(1)<cr>               # switch buffer
+nnoremap <c-k> :call SBQ_SelectBuffer(2)<cr>               # switch buffer
+
